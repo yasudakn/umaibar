@@ -4,6 +4,7 @@ from keras.preprocessing.image import array_to_img, img_to_array, load_img
 import base64
 from decimal import *
 from flask import Flask, make_response, request, Response
+import glob
 import io
 import json
 import os
@@ -19,7 +20,7 @@ api.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 1024
 
 UPLOAD_DIR = os.getenv("UPLOAD_DIR_PATH") or 'uploads'
 
-BEST_SCORE_WEIGHTS_FILE = '/work/umaibar/umaibar_vgg16_weights.193-0.00-1.00-0.29-0.91.h5'
+BEST_SCORE_WEIGHTS_FILE = sorted(glob.glob('*.h5'), reverse=True)[0]
 
 pred = Predict(BEST_SCORE_WEIGHTS_FILE)
 
