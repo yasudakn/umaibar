@@ -1,0 +1,16 @@
+HTTP/1.1 503 Service Unavailable
+Server: squid/3.5.20
+Mime-Version: 1.0
+Date: Fri, 07 Sep 2018 08:01:35 GMT
+Content-Type: text/html;charset=utf-8
+Content-Length: 3572
+X-Squid-Error: ERR_CONNECT_FAIL 111
+Vary: Accept-Language
+Content-Language: en
+X-Cache: MISS from proxy.ogis-ri.co.jp
+X-Cache-Lookup: MISS from proxy.ogis-ri.co.jp:3128
+X-Cache: MISS from proxy01.icc.ogis-ri.co.jp
+X-Cache-Lookup: MISS from proxy01.icc.ogis-ri.co.jp:8080
+Via: 1.1 proxy01.icc.ogis-ri.co.jp (squid/3.5.20)
+Connection: keep-alive
+

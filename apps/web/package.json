@@ -1,0 +1,45 @@
+{
+  "name": "umaibar_web",
+  "version": "1.0.0",
+  "description": "Nuxt.js project",
+  "author": "yasudak <yasuda_kunihiro@ogis-ri.co.jp>",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap-vue": "^2.0.0-rc.11",
+    "mocky": "^0.1.11",
+    "nuxt": "^1.0.0",
+    "vue": "^2.5.17",
+    "vue-picture-input": "^2.1.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-bridge.0",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^7.0.0-beta.3",
+    "cross-env": "^5.2.0",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.15.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-vue": "^4.0.0",
+    "file-loader": "^1.1.11",
+    "vue-loader": "^13.7.3",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^3.12.0",
+    "webpack-dev-server": "^3.1.8"
+  },
+  "config": {
+    "nuxt": {
+      "host": "0.0.0.0",
+      "port": "3000"
+    }
+  }
+}

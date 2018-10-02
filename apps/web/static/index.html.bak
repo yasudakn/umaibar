@@ -1,0 +1,25 @@
+!DOCTYPE html>
+<html>
+<head>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vue-picture-input"></script>
+  <title>In the browser!</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{ message }}</p>
+    <picture-input></picture-input>
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!'
+      },
+      components: {
+        'picture-input': PictureInput
+      }
+    })
+  </script>
+</body>
+</html>
