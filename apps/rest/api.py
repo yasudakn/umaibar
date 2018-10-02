@@ -20,7 +20,7 @@ api.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 1024
 
 UPLOAD_DIR = os.getenv("UPLOAD_DIR_PATH") or 'uploads'
 
-BEST_SCORE_WEIGHTS_FILE = sorted(glob.glob('*.h5'), reverse=True)[0]
+BEST_SCORE_WEIGHTS_FILE = sorted(glob.glob('/work/*.h5'), reverse=True)[0]
 
 pred = Predict(BEST_SCORE_WEIGHTS_FILE)
 
