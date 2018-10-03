@@ -67,7 +67,7 @@ def predict():
     print(scores)
     y_preds = (-scores).argsort()[:5]   #np.argmax(scores)
     pred_results = [[i, target_classes[i]] for i in y_preds]
-    print(pred_results)
+#    print(pred_results)
     
     gradcam_img = array_to_img(cam)
     img_bytes = io.BytesIO()

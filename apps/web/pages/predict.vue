@@ -47,7 +47,7 @@ vv
 <script>
 import axios from 'axios';
 
-var url = 'http://localhost:13001/predict';
+var url = '/rest/predict';
 
 export default {
   name: 'container',
@@ -68,12 +68,12 @@ export default {
   created (){
     let self = this;
     let data = [
-      	    {'url':'http://localhost:13000/P1040758_half.JPG'},
-	    {'url':'http://localhost:13000/P1040751_half.JPG'},
-	    {'url':'http://localhost:13000/P1040932_half.JPG'},
-	    {'url':'http://localhost:13000/P1040316_half.JPG'},
-	    {'url':'http://localhost:13000/P1040929_half.JPG'},
-            {'url':'http://localhost:13000/curl_cheese.jpg'}
+      	    {'url':'P1040758_half.JPG'},
+	    {'url':'P1040751_half.JPG'},
+	    {'url':'P1040932_half.JPG'},
+	    {'url':'P1040316_half.JPG'},
+	    {'url':'P1040929_half.JPG'},
+            {'url':'curl_cheese.jpg'}
 	    ];
     self.list = data;
   },

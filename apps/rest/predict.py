@@ -17,7 +17,8 @@ class Predict:
     nb_classes=19
     im_rows, im_cols = (224, 224)
     model = None
-    TEST_DIR = "/work/umaibar/data-content/test"
+    TEST_DIR = "../../data-content/test"
+    graph = None
 
     def __init__(self, weights):
         # モデルの構築とImageNetで学習済みの重みの読み込み
@@ -34,6 +35,9 @@ class Predict:
         self.model.load_weights(weights, by_name=False)
         
         self.model.compile(optimizer=Adam(), loss='categorical_crossentropy', metrics=['accuracy'])
+
+        self.model._make_predict_function()
+        self.graph = tf.get_default_graph()
 
         # Guided Grad-CAM
         register_gradient()
@@ -74,7 +78,7 @@ class Predict:
         img = np.expand_dims(img, axis=0)
         img_data = self.test_datagen.flow(img, batch_size=1, shuffle=False)
         x = next(img_data)
-        cam, heatmap, pred_scores = grad_cam(self.model, img, x, gradcam_layer, *(self.im_rows, self.im_cols))
+        cam, heatmap, pred_scores = grad_cam(self.graph, self.model, img, x, gradcam_layer, *(self.im_rows, self.im_cols))
         saliency = self.saliency_process(x)
         guided = saliency[0] * heatmap[..., np.newaxis]
 
@@ -83,20 +87,22 @@ class Predict:
     def saliency_process(self, x):
         return self.saliency_fn([x])
 
-def grad_cam(model, image, x, layer_name, *sizes):
+def grad_cam(graph, model, image, x, layer_name, *sizes):
     im_rows, im_cols = (sizes[0], sizes[1])
     # predict target image
-    predictions = model.predict(x, batch_size=1, verbose=0)
+    with graph.as_default():
+        predictions = model.predict(x, batch_size=1, verbose=0)
     class_idx = np.argmax(predictions[0])
     loss = model.output[:, class_idx]
 
     conv_output = model.get_layer(layer_name).output
     
-    grads = K.gradients(loss, conv_output)[0]
-    gradient_function = K.function([model.input], [conv_output, grads])
+    with graph.as_default():
+        grads = K.gradients(loss, conv_output)[0]
+        gradient_function = K.function([model.input], [conv_output, grads])
 
-    # get gradients
-    output, grads_val = gradient_function([x])
+        # get gradients
+        output, grads_val = gradient_function([x])
     output, grads_val = output[0], grads_val[0]
 
     # mean and dot
