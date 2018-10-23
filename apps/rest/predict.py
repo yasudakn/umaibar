@@ -17,10 +17,11 @@ class Predict:
     nb_classes=19
     im_rows, im_cols = (224, 224)
     model = None
-    TEST_DIR = "../../data-content/test"
+    test_dir = None
     graph = None
 
-    def __init__(self, weights):
+    def __init__(self, weights, test_dir = '../../data-content/test'):
+        self.test_dir = test_dir
         # モデルの構築とImageNetで学習済みの重みの読み込み
         base_model = VGG16(include_top=False, weights='imagenet', pooling=None)
 
@@ -51,7 +52,7 @@ class Predict:
 
         # test-data iterator
         test_batchs = ImageDataGenerator(rescale=1.0 / 255).flow_from_directory(
-            self.TEST_DIR,
+            self.test_dir,
             target_size = (self.im_rows, self.im_cols),
             batch_size = self.bs,
             color_mode = 'rgb',
