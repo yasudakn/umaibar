@@ -1,18 +1,24 @@
 ### うまい棒 分類のWebアプリ
 
-#### nginx
+フロントエンドはブラウザ上で動作するJavaScript、バックエンドはREST APIという構成をとっています。
 
-REST APIの受け付けるURLをWebアプリのURLの一部にマッピングしています。
-
-#### rest
-
-Kerasで学習済みモデルを使って予測するREST API
-このREST APIはPython flaskで作っています。
+以下はベースとしたフレームワーク等の簡単な説明
 
 #### web
 
 フロントエンドのWebアプリ
+
 [Nuxt-bootstrap](https://bootstrap-vue.js.org/docs/) で作っています。
+
+#### rest
+
+Kerasで学習済みモデルを使って予測するREST API
+
+このREST APIはPython flaskで作っています。
+
+#### nginx
+
+REST APIのリクエストを受け付けるURLはWebアプリのURLの一部にマッピングしています。
 
 ----
 
