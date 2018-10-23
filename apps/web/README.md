@@ -1,4 +1,4 @@
-# nuxt_sample
+# predict umaibar web app
 
 > Nuxt.js project
 
@@ -13,7 +13,10 @@ $ npm run dev
 
 # build for production and launch server
 $ npm run build
+$ cp -fR .nuxt /var/www/.nuxt/dist/
 $ npm start
+
+$ service nginx restart
 
 # generate static project
 $ npm run generate
