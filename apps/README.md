@@ -30,7 +30,7 @@ Kerasで学習済みモデルを使って予測するREST API
 
 #### nginx
 
-REST APIのリクエストを受け付けるURLはWebアプリのURLの一部にマッピングしています。
+WebアプリのリクエストとREST APIのリクエストを振り分けます。
 
 ----
 
