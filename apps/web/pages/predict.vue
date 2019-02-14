@@ -1,5 +1,10 @@
 <template>
   <div id="container">
+    <div align="right">
+      <a href="http://github.com/yasudakn/umaibar">
+        <img src="GitHub-Mark-64px.png" width="32"/>
+      </a>
+    </div>
     <div class="title">
       <h1>うまい棒 分類</h1>
     </div>
@@ -43,7 +48,7 @@
     </div>
   </div>
 </template>
-vv
+
 <script>
 import axios from 'axios';
 
