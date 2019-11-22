@@ -6,10 +6,6 @@
 
 分類させる画像は、①サンプルから選択するか、または端末のアルバムから選んで、②「推論する」ボタンを押すと、③結果が下部に出ます。
 
-[デモ環境](http://umaibar.us-east-1.yasuda.ifdemo.ogis-lab.com/predict) 稼動時間 9:00-18:00
-
-<img src="umaibar-qr.png" alt="デモ環境のQRコード" width="150">
-
 ### 仕組み
 
 フロントエンドはブラウザ上で動作するJavaScript、バックエンドはREST APIという構成をとっています。
